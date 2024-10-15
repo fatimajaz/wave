@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horizontal Wave Gradient Animation</title>
+  <style>
+    :root {
+      --speed: 2;
+      --base: 180;
+      --lightness: 50%;
+      --chroma: 50%;
+      --limit: 320;
+      --distance: 10;
+      --count: 30;
+      --ease: cubic-bezier(0.25, 1, 0.5, 1);
+      --amplitude: 30;
+      --frequency: 10;
+      --border-width: 2px; /* Width of the stroke */
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      background: clear;
+      display: grid;
+      place-items: center;
+      min-height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .wave {
+      display: flex;
+      gap: calc(var(--distance) * 1px);
+    }
+
+    .ball {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: none; /* Remove fill */
+      border: var(--border-width) solid hsl(calc(var(--base) + var(--index) * (var(--limit) - var(--base)) / var(--count)), var(--chroma), var(--lightness)); /* Apply color stroke */
+      animation: moveX calc(var(--speed) * 1s) infinite linear, moveY 2s infinite ease-in-out;
+      animation-delay: calc(var(--index) * -0.1s);
+    }
+
+    @keyframes moveX {
+      0% {
+        transform: translateX(-100vw);
+      }
+      100% {
+        transform: translateX(100vw);
+      }
+    }
+
+    @keyframes moveY {
+      0%, 100% {
+        transform: translateY(calc(var(--amplitude) * -1px));
+      }
+      50% {
+        transform: translateY(calc(var(--amplitude) * 1px));
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wave">
+    <!-- Generate ball divs with varying --index values for unique colors and delays -->
+    <div class="ball" style="--index: 0"></div>
+    <div class="ball" style="--index: 1"></div>
+    <div class="ball" style="--index: 2"></div>
+    <div class="ball" style="--index: 3"></div>
+    <div class="ball" style="--index: 4"></div>
+    <div class="ball" style="--index: 5"></div>
+    <div class="ball" style="--index: 6"></div>
+    <div class="ball" style="--index: 7"></div>
+    <div class="ball" style="--index: 8"></div>
+    <div class="ball" style="--index: 9"></div>
+    <div class="ball" style="--index: 10"></div>
+    <div class="ball" style="--index: 11"></div>
+    <div class="ball" style="--index: 12"></div>
+    <div class="ball" style="--index: 13"></div>
+    <div class="ball" style="--index: 14"></div>
+    <div class="ball" style="--index: 15"></div>
+    <div class="ball" style="--index: 16"></div>
+    <div class="ball" style="--index: 17"></div>
+    <div class="ball" style="--index: 18"></div>
+    <div class="ball" style="--index: 19"></div>
+    <div class="ball" style="--index: 20"></div>
+    <div class="ball" style="--index: 21"></div>
+    <div class="ball" style="--index: 22"></div>
+    <div class="ball" style="--index: 23"></div>
+    <div class="ball" style="--index: 24"></div>
+    <div class="ball" style="--index: 25"></div>
+    <div class="ball" style="--index: 26"></div>
+    <div class="ball" style="--index: 27"></div>
+    <div class="ball" style="--index: 28"></div>
+    <div class="ball" style="--index: 29"></div>
+  </div>
+</body>
+</html>
